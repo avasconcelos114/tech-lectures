@@ -1,0 +1,229 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+		<link rel="stylesheet" href="lib/css/monokai.css">
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<!-- SLIDE 1 ------------------------------------>
+				<section data-markdown>
+					<textarea data-template>
+						# Amazon Web Services
+					</textarea>
+				</section>
+
+				<!-- SLIDE 2 ------------------------------------>
+				<section data-markdown>
+					<textarea data-template>
+						_General Knowledge_
+						> Amazon Web Services offers a broad set of global cloud-based products including compute, storage, databases, analytics, networking, mobile, developer tools, management tools, IoT, security, and enterprise applications: on-demand, available in seconds, with pay-as-you-go pricing.
+					</textarea>
+				</section>
+
+				<!-- SLIDE 3 ------------------------------------>
+				<section>
+					<section data-markdown>
+						<textarea data-template>
+							### Barrier\$\$ to entry in tech
+							Costs involved in creating and distributing web services:
+							* Hardware costs
+								* Servers ($800 + each minimum, but decent ones easily surpass $4K each)
+								* Racks ($700+ each minimum, but better quality ones can cost several thousand)
+								* Storages 
+								* Cabling
+						
+						</textarea>
+					</section>
+					<section data-markdown>
+						<textarea data-template>
+							* Network equipment (Ethernet hub / switch)
+							* Personnel
+								* People to maintain equipment
+								* People to set up software
+								* People to keep systems and network secure
+						</textarea>
+					</section>
+					<section data-markdown>
+						<textarea data-template>
+							### ... but don't forget
+							* Product development
+								* Designers
+								* Developers
+								* Software Architects 
+								* Project Managers
+								* etc.
+							* Misc
+								* HR / Marketing / Operations / Sales
+						</textarea>	
+					</section>
+				</section>
+
+				<!-- SLIDE 4 ------------------------------------>
+				<section data-markdown>
+					<textarea data-template>
+						### Infrastructure-as-a-service (Cloud Computing Services)
+						* [Google Cloud](https://cloud.google.com/)
+						* [Microsoft Azure](https://azure.microsoft.com/en-us/)
+						* [Amazon Web Services (AWS)](https://aws.amazon.com/)
+					</textarea>
+				</section>
+
+				<!-- SLIDE 5 ------------------------------------>
+				<section data-markdown>
+					<textarea data-template>
+							_Dev Lecture_
+							#### AWS Product offerings ([Cloud Products](https://aws.amazon.com/products/?hp=tile&so-exp=below))
+							* Elastic Cloud Computing (EC2)
+							* Amazon Lightsail
+							* Simple Storage Service (S3)
+							* Serverless Stack
+							  * API Gateway
+							  * AWS Lambda
+							  * DynamoDB 
+					</textarea>
+				</section>
+
+				<!-- SLIDE 6 ------------------------------------>
+				<section data-markdown>
+					<textarea data-template>
+						#### [Amazon EC2](https://aws.amazon.com/ec2/)
+						_On-demand VMs on the cloud._
+						* Automatically Scalable
+						* Flexible (multiple options for OS, resource capacities)
+						* Advanced permissions and security settings
+							* Create user groups and roles to access instances
+							* Set policies on ports that can be accessed
+						* CHEAP (cheapest option costs $0.0058 per Hour)
+					</textarea>
+				</section>
+
+				<!-- SLIDE 7 ------------------------------------>
+				<section data-markdown>
+					<textarea data-template>
+						#### [Amazon Lightsail](https://aws.amazon.com/lightsail/)
+						_Light-weight VMs for website hosting._
+						* SUPER CHEAP ($3.50 / month) VMs for simple webapps and websites
+						* Set up various instances
+						* Easy load balancing
+						* Upgradeable to EC2
+					</textarea>
+				</section>
+
+				<!-- SLIDE 8 ------------------------------------>
+				<section data-markdown>
+					<textarea data-template>
+						#### [Amazon Simple Storage Service](https://aws.amazon.com/s3/)
+						_Storing files and videos, safely._
+						* Create "buckets" of files
+						* Set access permissions for files uploaded (from fully public to only accessible by authenticated users)
+					</textarea>
+				</section>
+
+				<!-- SLIDE 9 ------------------------------------>
+				<section data-markdown>
+					<textarea data-template>
+							#### [Serverless Computing](https://aws.amazon.com/serverless/)
+							_No servers, no problems._
+							* Create services that don't need to be deployed as a service by traditional methods
+							
+							**NOTE: It still technically runs from a physical server! You just don't need to worry about that**
+					</textarea>
+				</section>
+
+				<!-- SLIDE 10 ------------------------------------>
+				<section data-markdown>
+					<textarea data-template>
+						##### [Amazon API Gateway](https://aws.amazon.com/api-gateway/)
+						_Create, configure, control, and document APIs on the fly._
+						* Create APIs
+						* Validate inputs and authentication at the API level
+						* Customize parsing of inputs, response codes, response templates
+						* Issue API keys, Set rate limiting, etc
+					</textarea>
+				</section>
+
+				<!-- SLIDE 11 ------------------------------------>
+				<section data-markdown>
+					<textarea data-template>
+						##### [AWS Lambda](https://aws.amazon.com/lambda/)
+						_Running business logic by the fuction._
+						* Built-in scalability
+						* Create functions in Java, Go, PowerShell, Node.js, C#, Python, or Ruby
+						* Automatically deploy
+						* Trigger each function from API calls and only pay for compute time
+					</textarea>
+				</section>
+
+				<!-- SLIDE 12 ------------------------------------>
+				<section data-markdown>
+					<textarea data-template>
+						##### Databases
+						* No-SQL with [Amazon DynamoDB](https://aws.amazon.com/dynamodb/)
+						* SQL-based data store with [Amazon Aurora](https://aws.amazon.com/rds/aurora/serverless/)
+					</textarea>
+				</section>
+
+				<!-- SLIDE 13 ------------------------------------>
+				<section>
+					<section data-markdown>
+						<textarea data-template>
+							### Bonus Section:
+							##### Infrastructure-as-code
+							_Configure your entire infrastructure in a git repository._
+						</textarea>
+					</section>
+					<section data-markdown>
+						<textarea data-template>
+							##### Why tho?
+							* AWS's UI/UX is sluggish and confusing at best.
+							* Versioning issues
+							* Deploy and forget (Can get *very* costly)
+							* Easy to deploy, destroy, update, and keep a track of every facet; commands are as simple as:
+								* `terraform apply`
+								* `terraform destroy`
+								* `terraform plan`
+						</textarea>
+					</section>
+					<section data-markdown>
+						<textarea data-template>
+							Popular choices:
+							* [Chef](https://www.chef.io/)
+							* [Terraform](https://www.terraform.io/)
+							* [AWS CloudFormation](https://aws.amazon.com/cloudformation/) 
+							* [Serverless](https://serverless.com/)
+						</textarea>
+					</section>
+				</section>
+			</div>
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>
