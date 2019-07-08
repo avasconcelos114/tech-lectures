@@ -1,0 +1,212 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Docker lecture</title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+		<link rel="stylesheet" href="lib/css/monokai.css">
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<!-- SLIDE 1 ------------------------------------>
+				<section data-markdown>
+					<textarea data-template>
+						# Docker
+					</textarea>
+				</section>
+
+				<!-- SLIDE 2 ------------------------------------>
+				<section>
+					<section data-markdown>
+						<textarea data-template>
+							_General Knowledge_
+							### What does it mean to "Deploy" a server/service?
+						</textarea>
+					</section>
+					<section data-markdown>
+						<textarea data-template>
+							> "Deploying" a server means to make it available for consumption.  
+
+							Some of these tasks include:
+							* Downloading necessary files to a server (usually a Linux-based one)
+							* Setting up configuration files
+							* Configure networking (ports, firewalls)
+							* Running processes (i.e. Running the app itself)
+						</textarea>
+					</section>
+				</section>
+
+				<!-- SLIDE 3 ------------------------------------>
+				<section>
+					<section data-markdown>
+						<textarea data-template>
+							### What are some of the challenges found here?
+						</textarea>
+					</section>
+					<section data-markdown>
+						<textarea data-template>
+							* Complicated processes that normally involve dozens of commands
+							* Issues with inconsistencies between environments
+								* OS Incompatibility
+								* Incorrect dependency versions
+							* Issues with reproducing errors that occur on a specific environment
+						</textarea>
+					</section>
+				</section>
+
+
+				<!-- SLIDE 4 ------------------------------------>
+				<section>
+					<section data-markdown>
+						<textarea data-template>
+							### What are containers?
+							> A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another. 
+						</textarea>
+					</section>
+					<section>
+						<img src="img/container.png"/>
+					</section>
+				</section>
+				<!-- SLIDE 5 ------------------------------------>
+				<section data-markdown>
+					<textarea data-template>
+						#### Containers vs. Virtual Machines
+						<img src="img/vm.png"/>
+					</textarea>
+				</section>
+
+				<!-- SLIDE 6 ------------------------------------>
+				<section data-markdown>
+					<textarea data-template>
+						#### How do containers help developers?
+						* Consistency of environments
+						* Quick & easy setup
+						* Freedom to make mistakes
+					</textarea>
+				</section>
+
+				<!-- SLIDE 7 ------------------------------------>
+				<section data-markdown>
+					<textarea data-template>
+						#### How does it help companies
+						* Cut down development time
+						* More resource-efficient === more \$\$\$
+						* Less resources used to fix edge cases
+						* Uniform/Centralized method of deployment (means less complexity)
+					</textarea>
+				</section>
+
+				<!-- SLIDE 8 ------------------------------------>
+				<section data-markdown>
+					<textarea data-template>
+						##### Bonus Section:
+						Container deployment and management with Rancher!
+						* https://rancher.com
+					</textarea>
+				</section>
+
+				<!-- SLIDE 9 ------------------------------------>
+				<section>
+					<section data-markdown>
+						<textarea data-template>
+							_Dev Lecture_
+							### Dockerfiles and images
+						</textarea>
+					</section>
+					<section data-markdown>
+						<textarea data-template>
+							#### Dockerfile
+							* Dockerfiles are recipe books to build and deploy images
+							* Usual flow:
+								1. Create `Dockerfile`
+								2. Build images
+								3. Run as many containers as needed
+						</textarea>
+					</section>
+					<section data-markdown>
+						[Dockerfile](https://docs.docker.com/engine/reference/builder/)
+						```
+							# Choosing image from docker hub registry
+							FROM nginx:latest
+
+							# Making sure port 80 is available from container
+							EXPOSE 80
+							
+							# Copy pre-made nginx configuration file into container
+							COPY config/nginx.conf /etc/nginx/nginx.conf
+							
+							# Copying built project into nginx directory
+							COPY ./build/* /var/www/
+							
+							# Start up nginx server
+							RUN nginx
+						```
+					</section>
+					<section data-markdown>
+						<textarea data-template>
+							#### Images
+							* Images are pre-made packages that contain all necessary files
+							* Files included are defined in the Dockerfile 
+							* You have the freedom to set environment variables & bind volumes at run-time 
+						</textarea>
+					</section>
+					<section>
+						<img src="img/docker_flow.png"/>
+					</section>
+				</section>
+
+				<!-- SLIDE 10 ------------------------------------>
+				<section>
+					<section data-markdown>
+						<textarea data-template>
+							### Building your own image	
+						</textarea>
+					</section>
+					<section>
+						`docker build -t {image_name} .`
+						
+					</section>
+				</section>
+
+				<!-- SLIDE 11 ------------------------------------>
+				<section>
+					<section data-markdown>
+						<textarea data-template>
+							### Running your first container
+						</textarea>
+					</section>
+					<section>
+						`docker run -p 80:80 --name {container_name} {image_name}`
+						
+					</section>
+				</section>
+			</div>
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>
