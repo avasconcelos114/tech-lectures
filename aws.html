@@ -10,13 +10,6 @@
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/night.css">
 		<link rel="stylesheet" href="lib/css/monokai.css">
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
 	</head>
 	<body>
 		<div class="reveal">
@@ -47,7 +40,6 @@
 								* Racks ($700+ each minimum, but better quality ones can cost several thousand)
 								* Storages 
 								* Cabling
-						
 						</textarea>
 					</section>
 					<section data-markdown>
@@ -87,15 +79,15 @@
 				<!-- SLIDE 5 ------------------------------------>
 				<section data-markdown>
 					<textarea data-template>
-							_Dev Lecture_
-							#### AWS Product offerings ([Cloud Products](https://aws.amazon.com/products/?hp=tile&so-exp=below))
-							* Elastic Cloud Computing (EC2)
-							* Amazon Lightsail
-							* Simple Storage Service (S3)
-							* Serverless Stack
-							  * API Gateway
-							  * AWS Lambda
-							  * DynamoDB 
+						_Dev Lecture_
+						#### AWS Product offerings ([Cloud Products](https://aws.amazon.com/products/?hp=tile&so-exp=below))
+						* Elastic Cloud Computing (EC2)
+						* Amazon Lightsail
+						* Simple Storage Service (S3)
+						* Serverless Stack
+							* API Gateway
+							* AWS Lambda
+							* DynamoDB 
 					</textarea>
 				</section>
 
@@ -104,8 +96,8 @@
 					<textarea data-template>
 						#### [Amazon EC2](https://aws.amazon.com/ec2/)
 						_On-demand VMs on the cloud._
-						* Automatically Scalable
-						* Flexible (multiple options for OS, resource capacities)
+						* [Automatically Scalable](https://aws.amazon.com/ec2/autoscaling/)
+						* Flexible ([multiple options for OS](https://aws.amazon.com/ec2/features/), [resource capacities](https://aws.amazon.com/ec2/instance-types))
 						* Advanced permissions and security settings
 							* Create user groups and roles to access instances
 							* Set policies on ports that can be accessed
@@ -140,9 +132,9 @@
 					<textarea data-template>
 							#### [Serverless Computing](https://aws.amazon.com/serverless/)
 							_No servers, no problems._
-							* Create services that don't need to be deployed as a service by traditional methods
+							* Create services that don't need to be deployed as a server using traditional methods  
 							
-							**NOTE: It still technically runs from a physical server! You just don't need to worry about that**
+							_PS: It still technically runs from a physical server! You just don't need to worry about that_
 					</textarea>
 				</section>
 
@@ -213,7 +205,7 @@
 			</div>
 		</div>
 
-		<script src="js/reveal.js"></script>
+		<script src="js/reveal.min.js"></script>
 
 		<script>
 			Reveal.initialize({
