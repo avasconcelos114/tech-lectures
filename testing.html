@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Testing</title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/night.css">
+		<link rel="stylesheet" href="lib/css/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<!-- SLIDE 1 ------------------------------------>
+				<section data-markdown>
+					<textarea data-template>
+                        ### Testing
+                        
+                        _How companies battle through uncertainty._
+					</textarea>
+				</section>
+
+				<!-- SLIDE 2 ------------------------------------>
+				<section data-markdown>
+					<textarea data-template>
+                        General Knowledge
+                        * What are tests?
+                        * What are the issues with not testing?
+                        * How do companies test their products?
+                        * What are the types of testing available?
+                          * Unit testing
+                          * End-to-end testing 
+                          * Integration testing
+                          * Regression testing
+                          * Many more!
+                        * Testing automation tools
+                          * TestComplete
+
+                        Dev Lecture
+                        * Creating test cases
+                        * Automating your tests with libraries
+                          * Jest / Enzyme (Unit tests)
+                          * Cypress.io (E2E tests)
+                          * JUnit (Unit tests)
+                    </textarea>
+				</section>
+			</div>
+		</div>
+
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>
