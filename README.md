@@ -2,8 +2,9 @@
 A collection of lecture slides built over reveal.js that cover a variety of tech-related topics.
 
 ## Lectures
-* Amazon Web Services
-* Docker and Containerization
+* [Amazon Web Services](https://avasconcelos114.github.io/tech-lectures/aws)
+* [Docker and Containerization](https://avasconcelos114.github.io/tech-lectures/docker)
+* [Git](https://avasconcelos114.github.io/tech-lectures/git)
 
 ## How to run a lecture
 Note: Just use the absolute path of a lectures `index.html` file on your browser to view locally
