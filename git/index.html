@@ -1,0 +1,222 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Git</title>
+
+		<link rel="stylesheet" href="../css/reset.css">
+		<link rel="stylesheet" href="../css/reveal.css">
+		<link rel="stylesheet" href="../css/custom.css">
+		<link rel="stylesheet" href="../css/theme/serif.css">
+		<link rel="stylesheet" href="../lib/css/monokai.css">
+
+		<style>
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<!-- SLIDE 1 : Intro ------------------------------------>
+				<section data-markdown>
+					<textarea data-template>
+                        ### Git
+                        
+                        _The ins and outs of version control with Git_
+					</textarea>
+				</section>
+
+				<!-- SLIDE 2 : Intro ------------------------------------>
+				<section>
+					<section data-markdown>
+						#### What is it?
+						Git is a file-based key value store    
+						`value` == `data`    
+						`key` == `SHA1` (Hash of the data)  
+					</section>
+					<section data-markdown>
+						##### SHA1  
+						Crypto hash function that results in a 40 digit hexadecimal number  
+						e.g. `0270e812545a...`
+					</section>
+					  
+				</section>
+
+				<!-- SLIDE 3 : Objects ------------------------------------>
+				<section>
+					<section data-markdown>
+						#### Objects  
+						##### Blob
+						* Compressed file data
+						* Comes with metadata in following format:
+						```
+						blob {file-size}\0{file-contents}
+						```
+						<!-- What is the file size metadata used for? calculating total repo size? -->
+						* Blobs (and other objects) can be inspected with the `git cat-file` command  
+					</section>
+					<section>
+						<img src="img/blob_inspect.png"/>
+					</section>
+					<section data-markdown>
+						##### Tree
+						* Points to another tree or a blob, could be used to generate the file structure of a project
+						* A tree object can represent:
+							* A specific file when pointing to a blob (exec state, file name, blob SHA1)
+							* Another tree when representing a file path
+					</section>
+					<section data-markdown>
+						##### Commit
+						* Points to a `tree` (current snapshot of project during time of commit)
+						* Contains metadata
+							* Author
+							* Committer
+							* Commit Message
+							* Parent commit (one or more for merges)
+					</section>
+					<section>
+						<img src="img/git_objects.png"/>
+					</section>
+				</section>
+
+				<!-- SLIDE 4 : Git Areas ------------------------------------>
+				<section>
+					<section data-markdown>
+						### Git Areas
+						#### Working Area
+						* Files or changes that are untracked (not yet handled by git)
+					</section>
+					<section data-markdown>
+						#### Staging Area
+						* Files to be included in the next commit
+					</section>
+					<section data-markdown>
+						#### The Repository
+						* Everything being managed by Git
+							* Files
+							* Directories
+					</section>
+				</section>
+
+				<!-- SLIDE 5 : References ------------------------------------>
+				<section>
+					<section data-markdown>
+						### References
+						* HEAD
+						* Branches (`master`, `develop`, etc)
+						* Tags
+					</section>
+					<section data-markdown>
+						#### HEAD
+						A reference to the branch (or commit) that git is currently in.
+					</section>
+					<section>
+						<img src="img/head_ref.png"/>
+					</section>
+					<section data-markdown>
+						* `HEAD` can point to a commit when it enters headless (or detached HEAD) state
+						* Commits made in detached head will be garbage collected if not applied to a branch
+					</section>
+					<section data-markdown>
+						#### Branch
+						* A named pointer that changes with every new commit to the same branch
+						* Uses `HEAD` to determine next commit's parent
+					</section>
+					<section data-markdown>
+						#### Tag
+						* Pointer to the current `HEAD`
+						* Acts as a "Screenshot" for your codebase, it never changes.
+					</section>
+					<section data-markdown>
+						### Useful Commands
+						* Create annotated tag:   
+						```
+						git tag -a -m "&lt;message&gt;"
+						````
+						* Show tags:  
+						```
+						git tag
+						```
+						* Create new branch:  
+						```
+						git checkout -b &lt;branch-name&gt;
+						```
+					</section>
+				</section>
+
+				<!-- SLIDE 6 : Merging ------------------------------------>
+				<section>
+					<section data-markdown>
+						### Merging
+						* Applying all changes of a given branch into another.
+					</section>
+					<section>
+						<img src="img/merge.png"/>
+					</section>
+				</section>
+
+				<!-- SLIDE 7 : Rebasing (normal and interactive) ------------------------------------>
+				<section>
+					<section data-markdown>
+						### Rebasing
+						* Iteratively applying each commit of a branch on top of another
+						<img src="img/rebase.png"/>
+					</section>
+					<section data-markdown>
+						#### Common Rebase
+						* Rebases every commit onto a target branch
+						```
+						git rebase master
+						```
+					</section>
+					<section data-markdown>
+						#### Interactive Rebase
+						* Allows used to select what to do with each commit
+						```
+						git rebase -i master
+						```
+
+						Main options include: pick (default), edit, squash, drop
+					</section>
+				</section>
+
+				<!-- SLIDE 8 : Cherry-pick ------------------------------------>
+				<section data-markdown>
+					### Cherry-pick
+					* Select a single commit from another branch to apply on top of `HEAD`
+					```
+					git cherry-pick &lt;commit-sha1&gt;
+					```
+				</section>
+
+				<!-- SLIDE 9 : Destructive Actions ------------------------------------>
+				<section data-markdown>
+					### Destructive Actions
+					* Actions that may change and erase git history
+					  * Force push (overrides changes in remote)
+					  ```
+					  git push -f origin master
+					  ```
+					  * Hard reset (resets `HEAD` to match a desired reference)
+					  ```
+					  git reset --hard &lt;branch-name&gt;
+					  ```
+				</section>
+			</div>
+		</div>
+
+		<script src="../js/reveal.min.js"></script>
+
+		<script>
+			Reveal.initialize({
+				dependencies: [
+					{ src: '../plugin/markdown/marked.js' },
+					{ src: '../plugin/markdown/markdown.js' },
+					{ src: '../plugin/notes/notes.js', async: true },
+					{ src: '../plugin/highlight/highlight.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>

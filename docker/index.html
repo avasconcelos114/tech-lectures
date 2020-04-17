@@ -6,10 +6,11 @@
 
 		<title>Docker lecture</title>
 
-		<link rel="stylesheet" href="css/reset.css">
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
-		<link rel="stylesheet" href="lib/css/monokai.css">
+		<link rel="stylesheet" href="../css/reset.css">
+		<link rel="stylesheet" href="../css/reveal.css">
+		<link rel="stylesheet" href="../css/custom.css">
+		<link rel="stylesheet" href="../css/theme/black.css">
+		<link rel="stylesheet" href="../lib/css/monokai.css">
 	</head>
 	<body>
 		<div class="reveal">
@@ -168,8 +169,10 @@
 							### Building your own image	
 						</textarea>
 					</section>
-					<section>
-						`docker build -t {image_name} .`
+					<section data-markdown>
+						```
+						docker build -t {image_name} .
+						```
 						
 					</section>
 				</section>
@@ -181,21 +184,25 @@
 							### Running your first container
 						</textarea>
 					</section>
-					<section>
-						`docker run -p 80:80 --name {container_name} {image_name}`
+					<section data-markdown>
+						```
+						docker run -p 80:80 --name {container_name} {image_name}
+						```
 						
 					</section>
 				</section>
 			</div>
 		</div>
 
-		<script src="js/reveal.min.js"></script>
+		<script src="../js/reveal.min.js"></script>
 
 		<script>
 			Reveal.initialize({
 				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
+					{ src: '../plugin/markdown/marked.js' },
+					{ src: '../plugin/markdown/markdown.js' },
+					{ src: '../plugin/notes/notes.js', async: true },
+					{ src: '../plugin/highlight/highlight.js', async: true }
 				]
 			});
 		</script>
